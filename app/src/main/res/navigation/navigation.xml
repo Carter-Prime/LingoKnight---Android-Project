@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/titleFragment">
+
+    <!--menu navigation-->
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="app.lingoknight.menu.AboutFragment"
+        android:label="LingoKnight - About"
+        tools:layout="@layout/fragment_about"/>
+    <fragment
+        android:id="@+id/resetLeaderboardFragment"
+        android:name="app.lingoknight.menu.ResetLeaderboardFragment"
+        android:label="LingoKnight - Reset"
+        tools:layout="@layout/fragment_reset_leaderboard" />
+    <fragment
+        android:id="@+id/changeLanguageFragment"
+        android:name="app.lingoknight.menu.ChangeLanguageFragment"
+        android:label="ChangeLanguageFragment"
+        tools:layout="@layout/fragment_change_language"/>
+
+
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="app.lingoknight.menu.TitleFragment"
+        android:label="LingoKnight"
+        tools:layout="@layout/fragment_title" >
+        <action
+            android:id="@+id/action_titleFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="app.lingoknight.menu.GameFragment"
+        android:label="LingoKnight - Game"
+        tools:layout="@layout/fragment_game" />
+
+    <fragment
+        android:id="@+id/practiceFragment"
+        android:name="app.lingoknight.menu.PracticeFragment"
+        android:label="LingoKnight - Practice"
+        tools:layout="@layout/fragment_practice" />
+
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="app.lingoknight.menu.LeaderboardFragment"
+        android:label="LingoKnight - Leaderboard"
+        tools:layout="@layout/fragment_leaderboard"/>
+
+
+</navigation>

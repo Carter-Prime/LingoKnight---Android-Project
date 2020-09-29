@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LingoKnight</string>
+    <string name="play">Play</string>
+    <string name="practice">Practice</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="title">Title</string>
+    <string name="choose_language">Choose a Language</string>
+    <string name="reset_leaderboard">Reset Leaderboard</string>
+    <string name="about">About</string>
+    <string name="biography">A future software developer in the making!\n\nCurrently living in Finland with my family where I was able to grab a chance at learning to code and found my passion.\n \nAs a lifelong student, I am able to constantly push myself to learn new ideas and skills especially to satisfy my growing curiosity towards software development.\n</string>
+    <string name="about_me">About Me</string>
+
+
+</resources>
