@@ -1,6 +1,6 @@
 package app.lingoknight.network
 
-import app.lingoknight.data.Word
+import app.lingoknight.database.Word
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

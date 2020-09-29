@@ -1,22 +1,20 @@
 package app.lingoknight.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import app.lingoknight.data.Word
 
 @Dao
 interface WordDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWord(words: Words)
+    fun insertWord(words: Word)
 
     @Update
-    fun updateWord(words: Words)
+    fun updateWord(words: Word)
 
     @Delete
-    fun deleteWord(words: Words)
+    fun deleteWord(words: Word)
 
     @Query("SELECT * FROM WORDS_TABLE WHERE text = :word")
-    fun getWord(word: String): Words
+    fun getWord(word: String): Word
 
 }

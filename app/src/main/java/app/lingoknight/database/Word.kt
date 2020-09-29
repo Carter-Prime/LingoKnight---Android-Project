@@ -1,6 +1,17 @@
-package app.lingoknight.data
+package app.lingoknight.database
 
-data class Word(val lang: String, val text: String) {
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+
+@Entity(tableName = "words_table")
+data class Word(@ColumnInfo val lang: String, @ColumnInfo val text: String) {
+
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+
+    //TODO create type conversion to json for storage in Room
     private val translations = mutableSetOf<Word>()
 
     fun addTranslation(t: Word) {
@@ -55,4 +66,5 @@ data class Word(val lang: String, val text: String) {
         closestList.sortBy { it.second }
         return closestList.filterIndexed{ index, _ -> index < numberClosest}
     }
+
 }

@@ -3,8 +3,6 @@
 <resources>
     <dimen name="vertical_margin">16dp</dimen>
     <dimen name="horizontal_margin">8dp</dimen>
-    <dimen name="game_over_height">350dp</dimen>
-
 
     <dimen name="text_header">58sp</dimen>
     <dimen name="text_body">16sp</dimen>

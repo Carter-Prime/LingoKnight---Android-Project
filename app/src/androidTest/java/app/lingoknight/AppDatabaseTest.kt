@@ -52,8 +52,8 @@ package app.lingoknight
         @Test
         @Throws(Exception::class)
         fun insertAndGetWord() {
-            val word = Words("English", "king")
-            wordDao.insertWord(word)
+            val words = Word("English", "king")
+            wordDao.insertWord(words)
             val wordFound = wordDao.getWord("king")
             assertEquals(wordFound.text, "king")
         }

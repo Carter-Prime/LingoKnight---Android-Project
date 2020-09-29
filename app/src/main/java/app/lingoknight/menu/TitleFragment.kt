@@ -18,7 +18,7 @@ class TitleFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
                 R.layout.fragment_title,container,false)
 
-        //Clean this on click up
+        //TODO Clean this on click up
         binding.btnPlay.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
         }
@@ -29,14 +29,8 @@ class TitleFragment : Fragment() {
             view.findNavController().navigate(R.id.action_titleFragment_to_leaderboardFragment)
         }
 
-        setHasOptionsMenu(true)
+
         return binding.root
-    }
-
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.options_menu,menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

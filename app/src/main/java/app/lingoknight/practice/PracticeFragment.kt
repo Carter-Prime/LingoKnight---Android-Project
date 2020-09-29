@@ -12,17 +12,10 @@ import app.lingoknight.databinding.FragmentPracticeBinding
 
 class PracticeFragment : Fragment() {
 
-    /**
-     * Lazily initialize our [PracticeViewModel].
-     */
     private val viewModel: PracticeViewModel by lazy {
         ViewModelProvider(this).get(PracticeViewModel::class.java)
     }
 
-    /**
-     * Inflates the layout with Data Binding, sets its lifecycle owner to the OverviewFragment
-     * to enable Data Binding to observe LiveData, and sets up the RecyclerView with an adapter.
-     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = FragmentPracticeBinding.inflate(inflater)
@@ -30,7 +23,7 @@ class PracticeFragment : Fragment() {
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
-        // Giving the binding access to the OverviewViewModel
+        // Giving the binding access to the PracticeViewModel
         binding.practiceViewModel = viewModel
 
         return binding.root
