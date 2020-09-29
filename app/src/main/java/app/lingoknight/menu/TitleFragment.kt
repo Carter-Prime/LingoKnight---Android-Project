@@ -23,7 +23,7 @@ class TitleFragment : Fragment() {
             view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
         }
         binding.btnPractice.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_titleFragment_to_practiceFragment)
+            view.findNavController().navigate(R.id.action_titleFragment_to_practiceMainFragment)
         }
         binding.btnLeaderboard.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_titleFragment_to_leaderboardFragment)

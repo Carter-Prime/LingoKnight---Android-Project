@@ -31,29 +31,38 @@
             android:id="@+id/action_titleFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
         <action
-            android:id="@+id/action_titleFragment_to_practiceFragment"
-            app:destination="@id/practiceFragment" />
-        <action
             android:id="@+id/action_titleFragment_to_leaderboardFragment"
             app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_practiceMainFragment"
+            app:destination="@id/practiceMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="app.lingoknight.menu.GameFragment"
+        android:name="app.lingoknight.game.GameFragment"
         android:label="LingoKnight - Game"
         tools:layout="@layout/fragment_game" />
 
     <fragment
         android:id="@+id/practiceFragment"
-        android:name="app.lingoknight.menu.PracticeFragment"
+        android:name="app.lingoknight.practice.PracticeFragment"
         android:label="LingoKnight - Practice"
         tools:layout="@layout/fragment_practice" />
 
     <fragment
         android:id="@+id/leaderboardFragment"
-        android:name="app.lingoknight.menu.LeaderboardFragment"
+        android:name="app.lingoknight.leaderboard.LeaderboardFragment"
         android:label="LingoKnight - Leaderboard"
         tools:layout="@layout/fragment_leaderboard"/>
+    <fragment
+        android:id="@+id/practiceMainFragment"
+        android:name="app.lingoknight.practice.PracticeMainFragment"
+        android:label="PracticeMainFragment"
+        tools:layout="@layout/fragment_practice_main">
+        <action
+            android:id="@+id/action_practiceMainFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment" />
+    </fragment>
 
 
 </navigation>
