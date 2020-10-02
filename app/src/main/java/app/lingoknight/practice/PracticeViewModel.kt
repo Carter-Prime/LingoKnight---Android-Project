@@ -8,6 +8,7 @@ import app.lingoknight.database.Word
 
 import app.lingoknight.repository.AppRepository
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 import java.io.IOException
 
@@ -32,12 +33,10 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
         get() = _word
 
 
-
-
-
     init {
         refreshDataFromRepository()
-        _word = MutableLiveData<Word>(Word("english", "king"))
+        _word.value = listOfWords.value?.get(1)
+        Timber.d(_word.value?.text)
     }
 
 
@@ -55,10 +54,9 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun changeWord(): LiveData<Word> {
-        return MutableLiveData(Word("english", "knight"))
+    fun changeWord(){
+        _word.value = listOfWords.value?.get(5)
     }
-
 
 
 }

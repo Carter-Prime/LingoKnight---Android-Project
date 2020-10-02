@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import app.lingoknight.database.Word
 import app.lingoknight.databinding.FragmentPracticeMainBinding
+import timber.log.Timber
 
 
 class PracticeMainFragment : Fragment() {
@@ -38,9 +39,10 @@ class PracticeMainFragment : Fragment() {
 
         // Giving the binding access to the PracticeViewModel
         binding.practiceViewModel = viewModel
+        binding.wordText.text = viewModel.word.value?.text
+
 
         viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
-            binding.wordText.text = newWord?.text
             Toast.makeText(context, viewModel.word.value?.text, Toast.LENGTH_SHORT).show()
         })
 
