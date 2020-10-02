@@ -1,6 +1,10 @@
 package app.lingoknight.practice
 
+
+import android.annotation.SuppressLint
 import android.app.Application
+import android.util.Log
+
 
 import androidx.lifecycle.*
 import app.lingoknight.database.AppDatabase
@@ -8,11 +12,28 @@ import app.lingoknight.database.Word
 
 import app.lingoknight.repository.AppRepository
 import kotlinx.coroutines.launch
-import timber.log.Timber
+
 
 import java.io.IOException
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
 class PracticeViewModel(application: Application) : AndroidViewModel(application) {
+
+    private fun <T> LiveData<T>.blockingObserve(): T? {
+        var value: T? = null
+        val latch = CountDownLatch(1)
+
+        val observer = Observer<T> { t ->
+            value = t
+            latch.countDown()
+        }
+
+        observeForever(observer)
+
+        latch.await(2, TimeUnit.SECONDS)
+        return value
+    }
 
     private val wordsRepository = AppRepository(AppDatabase.getInstance(application))
 
@@ -25,18 +46,17 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
         get() = _isNetworkErrorShown
 
     private var _listOfWords = wordsRepository.words
-    val listOfWords: LiveData<List<Word>>
+    val listOfWords: LiveData<List<Word?>>
             get() = _listOfWords
 
-    private var _word = MutableLiveData<Word>()
-    val word: LiveData<Word>
+    private var _word = MutableLiveData<Word?>()
+    val word: LiveData<Word?>
         get() = _word
 
 
     init {
         refreshDataFromRepository()
-        _word.value = listOfWords.value?.get(1)
-        Timber.d(_word.value?.text)
+        Log.d("testing","init called: text = ${listOfWords.value?.get(0)}")
     }
 
 
@@ -46,6 +66,7 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
                 wordsRepository.refreshWords()
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
+
             } catch(networkError: IOException){
                 // Show a Toast error message and hide the progress bar.
                 if(listOfWords.value.isNullOrEmpty())
@@ -55,8 +76,18 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun changeWord(){
-        _word.value = listOfWords.value?.get(5)
+        if(_word.value?.text == listOfWords.value?.get(1)?.text){
+            _word.value = listOfWords.value?.get(4)
+        }else{
+            _word.value = listOfWords.value?.get(1)
+        }
+        Log.d("testing"," changeWord called: text = ${_word.value?.text}")
     }
 
+
+    fun setWord(){
+        _word.value = listOfWords.value?.get(0)
+        Log.d("testing","setWord called: text = ${listOfWords.value?.get(0)}")
+    }
 
 }

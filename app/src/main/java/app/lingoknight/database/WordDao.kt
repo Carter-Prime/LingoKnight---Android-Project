@@ -1,7 +1,6 @@
 package app.lingoknight.database
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 
 import androidx.room.*
 
@@ -9,21 +8,21 @@ import androidx.room.*
 interface WordDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWord(words: Word)
+    fun insertWord(word: Word?)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll( videos: List<Word>)
+    fun insertAll( word: List<Word?>)
 
     @Update
-    fun updateWord(words: Word)
+    fun updateWord(word: Word?)
 
     @Delete
-    fun deleteWord(words: Word)
+    fun deleteWord(word: Word?)
 
-    @Query("SELECT * FROM WORDS_TABLE WHERE text = :word LIMIT 1")
-    fun getWord(word: String): LiveData<Word>
+    @Query("SELECT * FROM WORDS_TABLE WHERE text = :word")
+    fun getWord(word: String): LiveData<Word?>
 
     @Query("SELECT * FROM WORDS_TABLE")
-    fun getListOfWords(): LiveData<List<Word>>
+    fun getListOfWords(): LiveData<List<Word?>>
 
 }
