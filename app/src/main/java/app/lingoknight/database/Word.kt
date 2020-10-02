@@ -6,28 +6,28 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "words_table")
-data class Word(@ColumnInfo val lang: String, @ColumnInfo val text: String) {
+data class Word(@ColumnInfo val lang: String, @ColumnInfo var text: String) {
 
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 
-    //TODO create type conversion to json for storage in Room
-    private val translations = mutableSetOf<Word>()
+    @ColumnInfo
+    var translationsList = mutableSetOf<Word>()
 
     fun addTranslation(t: Word) {
-        translations.add(t)
+        translationsList.add(t)
     }
 
     fun addTranslations(ts: Set<Word>) {
-        ts.forEach { translations.add(it)}
+        ts.forEach { translationsList.add(it)}
     }
 
     fun isTranslation(word: Word): Boolean {
-        return translations.contains(word)
+        return translationsList.contains(word)
     }
 
     fun translationCount(lang: String): Int {
-        return translations.filter{it.lang == lang}.count()
+        return translationsList.filter{it.lang == lang}.count()
     }
 
     private fun editDistance(another: Word): Int {
@@ -60,9 +60,9 @@ data class Word(@ColumnInfo val lang: String, @ColumnInfo val text: String) {
         return arr[strOneLen][strTwoLen]
     }
 
-    fun closestTranslations(numberClosest: Int, lang: String): List<Pair<String, Int>> {
-        val closestList = mutableListOf<Pair<String, Int>>()
-        translations.filter{it.lang == lang}.forEach {closestList.add(Pair(it.text, editDistance(it)))}
+    fun closestTranslations(numberClosest: Int, lang: String): List<Pair<String?, Int?>> {
+        val closestList = mutableListOf<Pair<String?, Int?>>()
+        translationsList.filter{it.lang == lang}.forEach {closestList.add(Pair(it.text, editDistance(it)))}
         closestList.sortBy { it.second }
         return closestList.filterIndexed{ index, _ -> index < numberClosest}
     }

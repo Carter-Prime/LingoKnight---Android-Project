@@ -48,6 +48,7 @@ dependencies {
 
     // Constraint Layout
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     // Unit testing
     testImplementation 'junit:junit:4.12'
@@ -96,4 +97,10 @@ dependencies {
     // Room dependency
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 }

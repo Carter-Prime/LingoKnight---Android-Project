@@ -1,34 +1,64 @@
 package app.lingoknight.practice
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.app.Application
 
-import app.lingoknight.network.WordApi
+import androidx.lifecycle.*
+import app.lingoknight.database.AppDatabase
+import app.lingoknight.database.Word
+
+import app.lingoknight.repository.AppRepository
 import kotlinx.coroutines.launch
 
-class PracticeViewModel: ViewModel() {
+import java.io.IOException
 
-    private val _response = MutableLiveData<String>()
+class PracticeViewModel(application: Application) : AndroidViewModel(application) {
 
-    // The external immutable LiveData for the response String
-    val response: LiveData<String>
-        get() = _response
+    private val wordsRepository = AppRepository(AppDatabase.getInstance(application))
+
+    private var _eventNetworkError = MutableLiveData<Boolean>(false)
+    val eventNetworkError: LiveData<Boolean>
+        get() = _eventNetworkError
+
+    private var _isNetworkErrorShown = MutableLiveData<Boolean>(false)
+    val isNetworkErrorShown: LiveData<Boolean>
+        get() = _isNetworkErrorShown
+
+    private var _listOfWords = wordsRepository.words
+    val listOfWords: LiveData<List<Word>>
+            get() = _listOfWords
+
+    private var _word = MutableLiveData<Word>()
+    val word: LiveData<Word>
+        get() = _word
+
+
+
+
 
     init {
-        getWordProperties()
+        refreshDataFromRepository()
+        _word = MutableLiveData<Word>(Word("english", "king"))
     }
 
-    private fun getWordProperties() {
-            viewModelScope.launch {
-                try {
-                    val listResult = WordApi.retrofitService.getProperties()
-                    _response.value = "Success: ${listResult.size} words retrieved"
-                } catch (e: Exception) {
-                    _response.value = "Failure: ${e.message}"
-                }
+
+    private fun refreshDataFromRepository(){
+        viewModelScope.launch {
+            try{
+                wordsRepository.refreshWords()
+                _eventNetworkError.value = false
+                _isNetworkErrorShown.value = false
+            } catch(networkError: IOException){
+                // Show a Toast error message and hide the progress bar.
+                if(listOfWords.value.isNullOrEmpty())
+                    _eventNetworkError.value = true
+            }
         }
     }
+
+    fun changeWord(): LiveData<Word> {
+        return MutableLiveData(Word("english", "knight"))
+    }
+
+
 
 }

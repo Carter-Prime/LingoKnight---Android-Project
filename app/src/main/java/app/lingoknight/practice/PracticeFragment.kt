@@ -2,13 +2,9 @@ package app.lingoknight.practice
 
 import android.os.Bundle
 import android.view.*
-
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-
 import app.lingoknight.databinding.FragmentPracticeBinding
-
-
 
 class PracticeFragment : Fragment() {
 

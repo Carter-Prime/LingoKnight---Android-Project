@@ -1,15 +1,13 @@
 package app.lingoknight.database
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 
 
-@Database(entities = [Player::class, Word::class], version = 1, exportSchema = false)
+@Database(entities = [Word::class], version = 2, exportSchema = false)
+@TypeConverters(WordConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract val playerDao: PlayerDao
     abstract val wordDao: WordDao
 
     companion object {
