@@ -1,10 +1,16 @@
 package app.lingoknight.practice
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import app.lingoknight.databinding.FragmentPracticeBinding
+
+
+
 
 class PracticeFragment : Fragment() {
 
@@ -14,18 +20,32 @@ class PracticeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding = FragmentPracticeBinding.inflate(inflater)
 
+        val binding = FragmentPracticeBinding.inflate(inflater)
+        // Giving the binding access to the PracticeViewModel
+        binding.practiceViewModel = viewModel
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
-        // Giving the binding access to the PracticeViewModel
-        binding.practiceViewModel = viewModel
+        binding.wordListRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.wordListRecyclerView.setHasFixedSize(true)
+
+        val adapter = WordAdapter()
+        binding.wordListRecyclerView.adapter = adapter
+
+
+        viewModel.listOfWords.observe(viewLifecycleOwner, { words ->
+            words?.apply {
+                // what happens to the view on update to listOfWords
+                adapter.submitList(viewModel.listOfWords)
+            }
+
+        })
+
+
 
         return binding.root
     }
 
-
-
-
 }
+

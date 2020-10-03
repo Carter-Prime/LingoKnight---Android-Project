@@ -9,6 +9,15 @@ import androidx.room.PrimaryKey
 data class Word(@ColumnInfo val lang: String,@PrimaryKey @ColumnInfo var text: String) {
 
     @ColumnInfo
+    var wordSeen = 0
+
+    @ColumnInfo
+    var wordCorrect = 0
+
+    @ColumnInfo
+    var wordIncorrect = 0
+
+    @ColumnInfo
     var translationsList = mutableSetOf<Word>()
 
     fun addTranslation(t: Word) {

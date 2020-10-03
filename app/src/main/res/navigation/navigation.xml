@@ -8,17 +8,17 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="app.lingoknight.menu.AboutFragment"
-        android:label="LingoKnight - About"
+        android:label="About"
         tools:layout="@layout/fragment_about"/>
     <fragment
         android:id="@+id/resetLeaderboardFragment"
         android:name="app.lingoknight.menu.ResetLeaderboardFragment"
-        android:label="LingoKnight - Reset"
+        android:label="Reset Leaderboard"
         tools:layout="@layout/fragment_reset_leaderboard" />
     <fragment
         android:id="@+id/changeLanguageFragment"
         android:name="app.lingoknight.menu.ChangeLanguageFragment"
-        android:label="ChangeLanguageFragment"
+        android:label="Change Language"
         tools:layout="@layout/fragment_change_language"/>
 
 
@@ -35,7 +35,7 @@
             app:destination="@id/leaderboardFragment" />
         <action
             android:id="@+id/action_titleFragment_to_practiceMainFragment"
-            app:destination="@id/practiceMainFragment" />
+            app:destination="@id/practiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -44,10 +44,10 @@
         tools:layout="@layout/fragment_game" />
 
     <fragment
-        android:id="@+id/practiceFragment"
-        android:name="app.lingoknight.practice.PracticeFragment"
+        android:id="@+id/practiceDetailsFragment"
+        android:name="app.lingoknight.practice.PracticeDetailsFragment"
         android:label="LingoKnight - Practice"
-        tools:layout="@layout/fragment_practice" />
+        tools:layout="@layout/fragment_practice_detail" />
 
     <fragment
         android:id="@+id/leaderboardFragment"
@@ -55,14 +55,10 @@
         android:label="LingoKnight - Leaderboard"
         tools:layout="@layout/fragment_leaderboard"/>
     <fragment
-        android:id="@+id/practiceMainFragment"
-        android:name="app.lingoknight.practice.PracticeMainFragment"
-        android:label="PracticeMainFragment"
-        tools:layout="@layout/fragment_practice_main">
-        <action
-            android:id="@+id/action_practiceMainFragment_to_practiceFragment"
-            app:destination="@id/practiceFragment" />
-    </fragment>
+        android:id="@+id/practiceFragment"
+        android:name="app.lingoknight.practice.PracticeFragment"
+        android:label="Practice"
+        tools:layout="@layout/fragment_practice"/>
 
 
 </navigation>

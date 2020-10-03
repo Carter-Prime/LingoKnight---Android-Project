@@ -14,21 +14,19 @@
         android:id="@+id/gameWonConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/scroll">
+        android:background="@drawable/my_background">
 
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
-            android:text="@{PracticeViewModel.word.text}"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wordListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.458"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.407" />
+            tools:listitem="@layout/word_list_item_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.*
 
 
-@Database(entities = [Word::class], version = 2, exportSchema = false)
+@Database(entities = [Word::class], version = 1, exportSchema = false)
 @TypeConverters(WordConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 

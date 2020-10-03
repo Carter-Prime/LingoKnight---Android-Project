@@ -3,26 +3,73 @@ package app.lingoknight.practice
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.lifecycle.LiveData
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.lingoknight.R
 import app.lingoknight.database.Word
+import kotlinx.android.synthetic.main.word_list_item_layout.view.*
 
 
-class WordAdapter: RecyclerView.Adapter<WordAdapter.ViewHolder>() {
+//
+class WordAdapter(private val interaction: Interaction? = null) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var data =  listOf<Word?>()
+    private val diffCallback = object : DiffUtil.ItemCallback<Word?>() {
+
+        override fun areItemsTheSame(oldItem: Word, newItem: Word): Boolean {
+            return oldItem.text == newItem.text
+        }
+
+        override fun areContentsTheSame(oldItem: Word, newItem: Word): Boolean {
+            return oldItem == newItem
+        }
+
+    }
+    private val differ = AsyncListDiffer(this, diffCallback)
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        private val wordText: TextView = itemView.findViewById(R.id.word_text_item_view)
-        private val qualityImage: ImageView = itemView.findViewById(R.id.word_image_item_view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        fun bind(item: Word?) {
-            val res = itemView.context.resources
-            wordText.text = item?.text
-            qualityImage.setImageResource(when (item?.text) {
+        return WordViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.word_list_item_layout,
+                parent,
+                false
+            ),
+            interaction
+        )
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is WordViewHolder -> {
+                holder.bind(differ.currentList.get(position))
+            }
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return differ.currentList.size
+    }
+
+    fun submitList(list: LiveData<List<Word?>>) {
+        differ.submitList(list.value)
+    }
+
+    class WordViewHolder
+    constructor(
+        itemView: View,
+        private val interaction: Interaction?
+    ) : RecyclerView.ViewHolder(itemView) {
+
+        fun bind(item: Word?) = with(itemView) {
+            itemView.setOnClickListener {
+                interaction?.onItemSelected(adapterPosition, item)
+            }
+            itemView.word_text_item_view.text = item?.text
+            itemView.word_image_item_view.setImageResource(when (item?.text) {
                 "king" -> R.drawable.king
                 "knight" -> R.drawable.knight
                 "princess" -> R.drawable.princess
@@ -40,28 +87,9 @@ class WordAdapter: RecyclerView.Adapter<WordAdapter.ViewHolder>() {
                 else -> R.drawable.oops_comic
             })
         }
-
-
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.word_list_item_layout, parent, false)
-        return ViewHolder(itemView)
+    interface Interaction {
+        fun onItemSelected(position: Int, item: Word?)
     }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
-        holder.bind(item)
-    }
-
-    override fun getItemCount(): Int {
-        return data.size
-    }
-
-    fun setWords(words: List<Word?>){
-        this.data = words
-        notifyDataSetChanged()
-    }
-
-
 }
