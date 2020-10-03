@@ -14,40 +14,19 @@
         android:id="@+id/gameWonConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/scroll">
+        android:background="@color/apple_green">
 
-
-        <TextView
-            android:id="@+id/word_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
-            android:text="@{PracticeViewModel.word.text}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/btn_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/change_word_text"
-            android:onClick="@{() -> PracticeViewModel.changeWord()}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/word_text"
-            app:layout_constraintVertical_bias="0.746" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="391dp"
-            android:layout_height="610dp"
-            app:layout_constraintBottom_toTopOf="@+id/word_text"
+            android:id="@+id/wordListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            tools:listitem="@layout/word_list_item_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

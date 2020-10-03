@@ -7,10 +7,21 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSurface">@color/scroll</item>
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
+        <item name="drawerArrowStyle">@style/DrawerIcon</item>
+
     </style>
 
     <style name="home_page_buttons" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/colorOnPrimary</item>
+        <item name="strokeColor">@color/colorOnPrimary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_marginTop">16dp</item>
     </style>
 
     <style name="pageHeaders">
@@ -29,6 +40,21 @@
         <item name="strokeWidth">5dp</item>
         <item name="strokeColor">@color/colorAccent</item>
 
+    </style>
+
+    <style name="ToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
+        <!-- Makes the toolbar text whatever color you want for both light/dark-->
+        <item name="titleTextColor">@color/colorOnPrimary</item>
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Toolbar.Button.Navigation.Tinted" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <!-- For the hamburger menu, back button, etc -->
+        <item name="tint">@color/colorOnPrimary</item>
+    </style>
+
+    <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/colorOnPrimary</item>
     </style>
 
 </resources>

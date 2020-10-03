@@ -6,10 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "words_table")
-data class Word(@ColumnInfo val lang: String, @ColumnInfo var text: String) {
-
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
+data class Word(@ColumnInfo val lang: String,@PrimaryKey @ColumnInfo var text: String) {
 
     @ColumnInfo
     var translationsList = mutableSetOf<Word>()

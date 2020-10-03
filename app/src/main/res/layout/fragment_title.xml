@@ -4,7 +4,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/my_background">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout2"
@@ -27,7 +28,8 @@
                 style="@style/home_page_buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/play" />
+                android:text="@string/play"
+                />
 
             <Button
                 android:id="@+id/btn_practice"
@@ -52,8 +54,10 @@
             android:src="@drawable/lingoknight_title_foreground"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
+            app:layout_constraintVertical_bias="0.313" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

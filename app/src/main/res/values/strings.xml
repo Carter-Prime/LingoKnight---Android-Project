@@ -10,6 +10,8 @@
     <string name="biography">A future software developer in the making!\n\nCurrently living in Finland with my family where I was able to grab a chance at learning to code and found my passion.\n \nAs a lifelong student, I am able to constantly push myself to learn new ideas and skills especially to satisfy my growing curiosity towards software development.\n</string>
     <string name="about_me">About Me</string>
     <string name="change_word_text">change word text</string>
+    <string name="word_picture">Word Picture</string>
+    <string name="knight">Knight</string>
 
 
 </resources>

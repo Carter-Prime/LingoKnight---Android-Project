@@ -11,29 +11,18 @@ import app.lingoknight.database.AppDatabase
 import app.lingoknight.database.Word
 
 import app.lingoknight.repository.AppRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 import java.io.IOException
+import java.lang.Math.random
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
+import kotlin.random.Random
 
 class PracticeViewModel(application: Application) : AndroidViewModel(application) {
-
-    private fun <T> LiveData<T>.blockingObserve(): T? {
-        var value: T? = null
-        val latch = CountDownLatch(1)
-
-        val observer = Observer<T> { t ->
-            value = t
-            latch.countDown()
-        }
-
-        observeForever(observer)
-
-        latch.await(2, TimeUnit.SECONDS)
-        return value
-    }
 
     private val wordsRepository = AppRepository(AppDatabase.getInstance(application))
 
@@ -56,7 +45,6 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
 
     init {
         refreshDataFromRepository()
-        Log.d("testing","init called: text = ${listOfWords.value?.get(0)}")
     }
 
 
@@ -75,19 +63,5 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun changeWord(){
-        if(_word.value?.text == listOfWords.value?.get(1)?.text){
-            _word.value = listOfWords.value?.get(4)
-        }else{
-            _word.value = listOfWords.value?.get(1)
-        }
-        Log.d("testing"," changeWord called: text = ${_word.value?.text}")
-    }
-
-
-    fun setWord(){
-        _word.value = listOfWords.value?.get(0)
-        Log.d("testing","setWord called: text = ${listOfWords.value?.get(0)}")
-    }
 
 }
