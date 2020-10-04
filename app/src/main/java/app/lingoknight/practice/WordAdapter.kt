@@ -45,7 +45,7 @@ class WordAdapter(private val interaction: Interaction? = null) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is WordViewHolder -> {
-                holder.bind(differ.currentList.get(position))
+                holder.bind(differ.currentList[position])
             }
         }
     }
@@ -58,11 +58,8 @@ class WordAdapter(private val interaction: Interaction? = null) :
         differ.submitList(list.value)
     }
 
-    class WordViewHolder
-    constructor(
-        itemView: View,
-        private val interaction: Interaction?
-    ) : RecyclerView.ViewHolder(itemView) {
+    class WordViewHolder constructor(itemView: View, private val interaction: Interaction?)
+        : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Word?) = with(itemView) {
             itemView.setOnClickListener {
@@ -90,6 +87,8 @@ class WordAdapter(private val interaction: Interaction? = null) :
     }
 
     interface Interaction {
-        fun onItemSelected(position: Int, item: Word?)
+        fun onItemSelected(position: Int, item: Word?){
+
+        }
     }
 }

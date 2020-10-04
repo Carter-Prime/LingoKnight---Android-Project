@@ -1,20 +1,28 @@
 package app.lingoknight.practice
 
 import android.os.Bundle
-import android.view.*
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import app.lingoknight.databinding.FragmentPracticeBinding
+import app.lingoknight.R
+import app.lingoknight.database.Word
+import app.lingoknight.databinding.FragmentPracticeDetailBinding
 
 class PracticeDetailsFragment : Fragment() {
 
     private val viewModel: PracticeViewModel by lazy {
         ViewModelProvider(this).get(PracticeViewModel::class.java)
     }
+    private var position:Int? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val binding = FragmentPracticeBinding.inflate(inflater)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding = FragmentPracticeDetailBinding.inflate(inflater)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
@@ -22,10 +30,45 @@ class PracticeDetailsFragment : Fragment() {
         // Giving the binding access to the PracticeViewModel
         binding.practiceViewModel = viewModel
 
+        // Passes onClick position to allow binding of the details page
+        position = arguments?.getInt("position")
+        Log.d("testing", "$position this is position passed.")
+
+        viewModel.listOfWords.observe(viewLifecycleOwner, { words ->
+            words?.apply {
+                // what happens to the view on update to listOfWords
+                bind(viewModel.getWord(position!!), binding)
+            }
+        })
+
         return binding.root
+
     }
 
 
-
-
+    private fun bind(item: Word?, view: FragmentPracticeDetailBinding) {
+        view.wordTextDetail.text = item?.text
+        view.correctNumber.text =item?.wordCorrect.toString()
+        view.incorrectNumber.text = item?.wordIncorrect.toString()
+        view.seenNumber.text = item?.wordSeen.toString()
+        view.wordImageDetail.setImageResource(
+            when (item?.text) {
+                "king" -> R.drawable.king
+                "knight" -> R.drawable.knight
+                "princess" -> R.drawable.princess
+                "witch" -> R.drawable.witch
+                "fox" -> R.drawable.fox
+                "purple" -> R.drawable.purple_monster
+                "blue" -> R.drawable.blue_bird
+                "dragon" -> R.drawable.dragon
+                "monster" -> R.drawable.green_monster
+                "green" -> R.drawable.green_troll
+                "tree" -> R.drawable.tree
+                "yellow" -> R.drawable.yellow_monster
+                "horse" -> R.drawable.horse
+                "goat" -> R.drawable.goat
+                else -> R.drawable.oops_comic
+            }
+        )
+    }
 }

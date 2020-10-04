@@ -12,6 +12,14 @@
     <string name="change_word_text">change word text</string>
     <string name="word_picture">Word Picture</string>
     <string name="knight">Knight</string>
+    <string name="word_stats">Word Stats</string>
+    <string name="how_many_times_seen">How many times seen:</string>
+    <string name="_34">34</string>
+    <string name="how_many_times_correct">How many times correct:</string>
+    <string name="_20">20</string>
+    <string name="how_many_times_incorrect">How many times incorrect:</string>
+    <string name="_14">14</string>
+    <string name="detail_image">detail_image</string>
 
 
 </resources>

@@ -73,7 +73,7 @@ class AppDatabaseTest {
     fun insertAndGetWord() {
         val words = Word("English", "king")
         wordDao.insertWord(words)
-        val wordFound = wordDao.getWord("king").blockingObserve()
+        val wordFound = wordDao.getWordLiveData("king")?.blockingObserve()
         assertEquals(wordFound?.text, "king")
     }
 
@@ -83,7 +83,7 @@ class AppDatabaseTest {
         val correctList = mutableSetOf<Word>(Word("Swedish", "kung"))
         val words = Word("English", "king")
         wordDao.insertWord(words)
-        val king = wordDao.getWord("king").blockingObserve()
+        val king = wordDao.getWordLiveData("king")?.blockingObserve()
         king?.addTranslation(Word("Swedish", "kung"))
         wordDao.updateWord(king)
         assertEquals(king?.translationsList, correctList)

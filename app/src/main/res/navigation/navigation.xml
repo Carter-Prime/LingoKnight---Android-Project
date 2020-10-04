@@ -46,7 +46,7 @@
     <fragment
         android:id="@+id/practiceDetailsFragment"
         android:name="app.lingoknight.practice.PracticeDetailsFragment"
-        android:label="LingoKnight - Practice"
+        android:label="Word Details"
         tools:layout="@layout/fragment_practice_detail" />
 
     <fragment
@@ -58,7 +58,15 @@
         android:id="@+id/practiceFragment"
         android:name="app.lingoknight.practice.PracticeFragment"
         android:label="Practice"
-        tools:layout="@layout/fragment_practice"/>
+        tools:layout="@layout/fragment_practice">
+        <action
+            android:id="@+id/action_practiceFragment_to_practiceDetailsFragment"
+            app:destination="@id/practiceDetailsFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            />
+    </fragment>
 
 
 </navigation>
