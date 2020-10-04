@@ -20,4 +20,18 @@ class WordConverter {
         val collectionType: Type = object : TypeToken<Set<Word?>?>() {}.type
         return gson.fromJson(jsonString, collectionType)
     }
+
+    @TypeConverter
+    fun answersToString(listOfQuestions: List<String>): String {
+        val gson = Gson()
+        return gson.toJson(listOfQuestions)
+    }
+
+    @TypeConverter
+    fun answersFromString(jsonString: String): List<String> {
+        val gson = Gson()
+        val collectionType: Type = object : TypeToken<Set<Word?>?>() {}.type
+        return gson.fromJson(jsonString, collectionType)
+    }
+
 }

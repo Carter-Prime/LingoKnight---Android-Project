@@ -4,11 +4,13 @@ import android.content.Context
 import androidx.room.*
 
 
-@Database(entities = [Word::class], version = 2, exportSchema = false)
+@Database(entities = [Word::class, Question::class, Player::class], version = 1, exportSchema = false)
 @TypeConverters(WordConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val wordDao: WordDao
+    abstract val questionDao: QuestionDao
+    abstract val playerDao: PlayerDao
 
     companion object {
 

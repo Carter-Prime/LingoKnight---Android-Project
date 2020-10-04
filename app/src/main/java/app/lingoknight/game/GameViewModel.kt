@@ -1,37 +1,43 @@
-package app.lingoknight.practice
+package app.lingoknight.game
 
 import android.app.Application
-import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import app.lingoknight.R
 import app.lingoknight.database.AppDatabase
+import app.lingoknight.database.Player
+import app.lingoknight.database.Question
 import app.lingoknight.database.Word
 import app.lingoknight.repository.AppRepository
 import kotlinx.coroutines.launch
-import java.io.IOException
 
 
-
-class PracticeViewModel(application: Application) : AndroidViewModel(application) {
+class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private val wordsRepository = AppRepository(AppDatabase.getInstance(application))
 
+    private var _listOfPlayers = wordsRepository.listOfPlayer
+    val listOfPlayers: LiveData<List<Player>>
+        get() = _listOfPlayers
+
+
+    private var _listOfQuestions = wordsRepository.listOfQuestions
+    val listOfQuestion: LiveData<List<Question>>
+        get() = _listOfQuestions
+
     private var _listOfWords = wordsRepository.words
     val listOfWords: LiveData<List<Word?>>
-            get() = _listOfWords
+        get() = _listOfWords
 
     private var _word  = wordsRepository.getWordLiveData("king")
     val word: LiveData<Word?>
-            get() = _word
+        get() = _word
 
     init {
         refreshDataFromRepository()
-        Log.d("testing", "${listOfWords.value?.size}")
     }
 
     private fun refreshDataFromRepository(){
@@ -40,7 +46,7 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun itemClicked(position: Int, clickedWord: Word?, view: PracticeFragment){
+    fun itemClicked(position: Int, clickedPlayer: Player, view: ChoosePlayerFragment){
         val bundle = bundleOf("position" to position)
         view.findNavController().navigate(R.id.action_practiceFragment_to_practiceDetailsFragment, bundle)
     }
@@ -50,4 +56,3 @@ class PracticeViewModel(application: Application) : AndroidViewModel(application
     }
 
 }
-

@@ -10,8 +10,5 @@
         android:id="@+id/changeLanguageFragment"
         android:icon="@drawable/nav_header"
         android:title="@string/choose_language" />
-    <item
-        android:id="@+id/resetLeaderboardFragment"
-        android:icon="@drawable/nav_header"
-        android:title="@string/reset_leaderboard" />
+
 </menu>

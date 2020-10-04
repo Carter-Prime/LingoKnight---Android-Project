@@ -20,6 +20,21 @@
     <string name="how_many_times_incorrect">How many times incorrect:</string>
     <string name="_14">14</string>
     <string name="detail_image">detail_image</string>
+    <string name="german">German</string>
+    <string name="finnish">Finnish</string>
+    <string name="english">English</string>
+    <string name="what_is_this">What is this?</string>
+    <string name="answer_one">Answer One</string>
+    <string name="answer_two">Answer Two</string>
+    <string name="answer_three">Answer Three</string>
+    <string name="next">Next</string>
+    <string name="new_player">New Player</string>
+    <string name="enter_your_name_here">Enter your name here</string>
+    <string name="choose_your_player">Choose Your Player</string>
+    <string name="mike">Mike</string>
 
+    <string name="player_score_format">Score: %d</string>
+    <string name="score">Score</string>
+    <string name="_10000">10000</string>
 
 </resources>

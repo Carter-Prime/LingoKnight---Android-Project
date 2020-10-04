@@ -10,8 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.lingoknight.database.Word
 import app.lingoknight.databinding.FragmentPracticeBinding
-
-
+import app.lingoknight.practice.WordAdapter
 
 
 class PracticeFragment : Fragment(), WordAdapter.Interaction {

@@ -1,5 +1,7 @@
 package app.lingoknight.network
 
+import app.lingoknight.database.Player
+import app.lingoknight.database.Question
 import app.lingoknight.database.Word
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -21,8 +23,14 @@ private val retrofit = Retrofit.Builder()
 
 interface WordApiService {
 
-    @GET("word.json")
-    suspend fun getProperties(): List<Word>
+    @GET("word3.json")
+    suspend fun getWordProperties(): List<Word>
+
+    @GET("questions.json")
+    suspend fun getQuestionProperties(): List<Question>
+
+    @GET("players.json")
+    suspend fun getPlayerProperties(): List<Player>
 }
 
 object WordApi {

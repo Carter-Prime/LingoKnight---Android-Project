@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "words_table")
-data class Word(@ColumnInfo val lang: String,@PrimaryKey @ColumnInfo var text: String) {
+data class Word(@ColumnInfo val id: String, @ColumnInfo val lang: String, @PrimaryKey  @ColumnInfo var text: String) {
 
     @ColumnInfo
     var wordSeen = 0

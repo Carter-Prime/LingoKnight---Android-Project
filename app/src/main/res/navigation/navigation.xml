@@ -11,16 +11,10 @@
         android:label="About"
         tools:layout="@layout/fragment_about"/>
     <fragment
-        android:id="@+id/resetLeaderboardFragment"
-        android:name="app.lingoknight.menu.ResetLeaderboardFragment"
-        android:label="Reset Leaderboard"
-        tools:layout="@layout/fragment_reset_leaderboard" />
-    <fragment
         android:id="@+id/changeLanguageFragment"
         android:name="app.lingoknight.menu.ChangeLanguageFragment"
         android:label="Change Language"
         tools:layout="@layout/fragment_change_language"/>
-
 
     <fragment
         android:id="@+id/titleFragment"
@@ -28,32 +22,30 @@
         android:label="LingoKnight"
         tools:layout="@layout/fragment_title" >
         <action
-            android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
-        <action
             android:id="@+id/action_titleFragment_to_leaderboardFragment"
             app:destination="@id/leaderboardFragment" />
         <action
             android:id="@+id/action_titleFragment_to_practiceMainFragment"
             app:destination="@id/practiceFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_choosePlayerFragment"
+            app:destination="@id/choosePlayerFragment" />
     </fragment>
+
+    <!--game navigation-->
     <fragment
         android:id="@+id/gameFragment"
         android:name="app.lingoknight.game.GameFragment"
         android:label="LingoKnight - Game"
         tools:layout="@layout/fragment_game" />
 
+    <!--practice navigation-->
     <fragment
         android:id="@+id/practiceDetailsFragment"
         android:name="app.lingoknight.practice.PracticeDetailsFragment"
         android:label="Word Details"
         tools:layout="@layout/fragment_practice_detail" />
 
-    <fragment
-        android:id="@+id/leaderboardFragment"
-        android:name="app.lingoknight.leaderboard.LeaderboardFragment"
-        android:label="LingoKnight - Leaderboard"
-        tools:layout="@layout/fragment_leaderboard"/>
     <fragment
         android:id="@+id/practiceFragment"
         android:name="app.lingoknight.practice.PracticeFragment"
@@ -66,6 +58,22 @@
             android:name="position"
             app:argType="integer"
             />
+    </fragment>
+
+    <!--Leaderboard navigation-->
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="app.lingoknight.leaderboard.LeaderboardFragment"
+        android:label="LingoKnight - Leaderboard"
+        tools:layout="@layout/fragment_leaderboard"/>
+    <fragment
+        android:id="@+id/choosePlayerFragment"
+        android:name="app.lingoknight.game.ChoosePlayerFragment"
+        android:label="ChoosePlayerFragment"
+        tools:layout="@layout/fragment_choose_player">
+        <action
+            android:id="@+id/action_choosePlayerFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
     </fragment>
 
 

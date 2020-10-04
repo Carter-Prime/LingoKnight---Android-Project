@@ -4,23 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.lingoknight.PracticeFragment">
 
+    <data>
+
+        <variable
+            name="GameViewModel"
+            type="app.lingoknight.game.GameViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/gameWonConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/scroll">
+        android:background="@drawable/my_background">
 
-
-        <TextView
-            android:id="@+id/textView2"
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="380dp"
-            android:text="Game Fragment"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.532"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:id="@+id/cardBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/detail_image"
+                android:elevation="-5dp"
+                android:src="@drawable/big_text_background"
+                tools:targetApi="lollipop" />
+
+            <ImageView
+                android:id="@+id/wordImageGame"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_below="@id/gameQuestion"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/word_picture"
+                android:src="@drawable/king" />
+
+            <TextView
+                android:id="@+id/gameQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/what_is_this"
+                android:textSize="36sp" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/wordImageGame"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp">
+
+                <RadioButton
+                    android:id="@+id/radioBtn_answerOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/answer_one" />
+
+                <RadioButton
+                    android:id="@+id/radioBtn_answerTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/answer_two" />
+
+                <RadioButton
+                    android:id="@+id/radioBtn_answerThree"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/answer_three" />
+            </RadioGroup>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.888"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            app:layout_constraintVertical_bias="0.797" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
+
+
+
