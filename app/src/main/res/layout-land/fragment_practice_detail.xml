@@ -16,7 +16,19 @@
         android:layout_height="match_parent"
         android:background="@drawable/my_background">
 
+
+        <ImageView
+            android:id="@+id/wordStats"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/word_stats"
+            android:src="@drawable/word_stats"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <RelativeLayout
+            android:id="@+id/relativeLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -43,9 +55,9 @@
                 android:layout_below="@id/word_image_detail"
                 android:layout_centerInParent="true"
                 android:gravity="center_horizontal"
+                android:padding="8dp"
                 android:text="@string/knight"
-                android:textSize="48sp"
-                android:padding="8dp"/>
+                android:textSize="48sp" />
 
             <ImageView
                 android:id="@+id/cardBackground"
@@ -69,24 +81,10 @@
             android:padding="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.883"
+            app:layout_constraintHorizontal_bias="0.852"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/Stats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/word_stats"
-                    android:textAlignment="center"
-
-                    />
-            </TableRow>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.733">
 
             <TableRow
                 android:layout_width="wrap_content"

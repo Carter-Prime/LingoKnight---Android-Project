@@ -34,9 +34,9 @@ class ChoosePlayerFragment : Fragment(), PlayerAdapter.Interaction {
 
         initRecyclerView(binding)
 
-        viewModel.listOfWords.observe(viewLifecycleOwner, { words ->
-            words?.apply {
-                // what happens to the view on update to listOfWords
+        viewModel.listOfPlayers.observe(viewLifecycleOwner, { players ->
+            players?.apply {
+                // what happens to the view on update to listOfPlayers
                 playerListAdapter.submitList(viewModel.listOfPlayers)
             }
 
