@@ -19,7 +19,7 @@ interface PlayerDao {
     fun deletePlayer(player: Player)
 
     @Query("SELECT * FROM player_table WHERE name = :playerName")
-    fun getPlayer(playerName: String): LiveData<Player>
+    fun getPlayer(playerName: String?): LiveData<Player>
 
     @Query("SELECT * FROM player_table")
     fun getListOfPlayers(): LiveData<List<Player>>

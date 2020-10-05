@@ -16,84 +16,94 @@
         android:layout_height="match_parent"
         android:background="@drawable/my_background">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
+
+        <ImageView
+            android:id="@+id/cardBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:contentDescription="@string/detail_image"
+            android:elevation="-5dp"
+            android:src="@drawable/big_text_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="lollipop" />
 
-            <ImageView
-                android:id="@+id/cardBackground"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:contentDescription="@string/detail_image"
-                android:elevation="-5dp"
-                android:src="@drawable/big_text_background"
-                tools:targetApi="lollipop" />
 
-            <ImageView
-                android:id="@+id/wordImageGame"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_below="@id/gameQuestion"
-                android:layout_centerHorizontal="true"
-                android:contentDescription="@string/word_picture"
-                android:src="@drawable/king" />
+        <RadioGroup
+            android:id="@+id/answerGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wordImageGame"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/cardBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wordImageGame">
 
-            <TextView
-                android:id="@+id/gameQuestion"
+            <RadioButton
+                android:id="@+id/radioBtn_answerOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
-                android:text="@string/what_is_this"
-                android:textSize="36sp" />
+                android:text="@string/answer_one" />
 
-            <RadioGroup
-                android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/radioBtn_answerTwo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/wordImageGame"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp">
+                android:text="@string/answer_two" />
 
-                <RadioButton
-                    android:id="@+id/radioBtn_answerOne"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/answer_one" />
+            <RadioButton
+                android:id="@+id/radioBtn_answerThree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_three" />
 
-                <RadioButton
-                    android:id="@+id/radioBtn_answerTwo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/answer_two" />
-
-                <RadioButton
-                    android:id="@+id/radioBtn_answerThree"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/answer_three" />
-            </RadioGroup>
+            <RadioButton
+                android:id="@+id/radioBtn_answerFour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_four" />
+        </RadioGroup>
 
 
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/wordImageGame"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/gameQuestion"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/word_picture"
+            android:src="@drawable/king"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameQuestion" />
+
+        <TextView
+            android:id="@+id/gameQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:text="@string/what_is_this"
+            android:textSize="36sp"
+            app:layout_constraintTop_toTopOf="@+id/cardBackground"
+            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/nextBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next"
+            android:text="@string/check"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.888"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_bias="0.797" />
+            app:layout_constraintTop_toBottomOf="@+id/cardBackground" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -36,5 +36,8 @@
     <string name="player_score_format">Score: %d</string>
     <string name="score">Score</string>
     <string name="_10000">10000</string>
+    <string name="mike_">Mike....</string>
+    <string name="answer_four">Answer Four</string>
+    <string name="check">Check</string>
 
 </resources>

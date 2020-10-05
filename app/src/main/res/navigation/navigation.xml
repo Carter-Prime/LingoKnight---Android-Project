@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="app.lingoknight.menu.AboutFragment"
-        android:label="About"
+        android:label="LingoKnight"
         tools:layout="@layout/fragment_about"/>
     <fragment
         android:id="@+id/changeLanguageFragment"
@@ -21,9 +21,6 @@
         android:name="app.lingoknight.menu.TitleFragment"
         android:label="LingoKnight"
         tools:layout="@layout/fragment_title" >
-        <action
-            android:id="@+id/action_titleFragment_to_leaderboardFragment"
-            app:destination="@id/leaderboardFragment" />
         <action
             android:id="@+id/action_titleFragment_to_practiceMainFragment"
             app:destination="@id/practiceFragment" />
@@ -43,13 +40,13 @@
     <fragment
         android:id="@+id/practiceDetailsFragment"
         android:name="app.lingoknight.practice.PracticeDetailsFragment"
-        android:label="Word Details"
+        android:label="LingoKnight"
         tools:layout="@layout/fragment_practice_detail" />
 
     <fragment
         android:id="@+id/practiceFragment"
         android:name="app.lingoknight.practice.PracticeFragment"
-        android:label="Practice"
+        android:label="LingoKnight"
         tools:layout="@layout/fragment_practice">
         <action
             android:id="@+id/action_practiceFragment_to_practiceDetailsFragment"
@@ -62,19 +59,16 @@
 
     <!--Leaderboard navigation-->
     <fragment
-        android:id="@+id/leaderboardFragment"
-        android:name="app.lingoknight.leaderboard.LeaderboardFragment"
-        android:label="LingoKnight - Leaderboard"
-        tools:layout="@layout/fragment_leaderboard"/>
-    <fragment
         android:id="@+id/choosePlayerFragment"
         android:name="app.lingoknight.game.ChoosePlayerFragment"
-        android:label="ChoosePlayerFragment"
+        android:label="LingoKnight"
         tools:layout="@layout/fragment_choose_player">
         <action
             android:id="@+id/action_choosePlayerFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
+
+
 
 
 </navigation>

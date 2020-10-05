@@ -33,10 +33,6 @@ class TitleFragment : Fragment() {
         binding.btnPractice.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_titleFragment_to_practiceMainFragment)
         }
-        binding.btnLeaderboard.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_titleFragment_to_leaderboardFragment)
-        }
-
 
         return binding.root
     }

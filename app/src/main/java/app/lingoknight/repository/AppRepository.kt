@@ -3,6 +3,7 @@ package app.lingoknight.repository
 
 import androidx.lifecycle.LiveData
 import app.lingoknight.database.AppDatabase
+import app.lingoknight.database.Player
 import app.lingoknight.database.Word
 import app.lingoknight.network.WordApi
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +30,10 @@ class AppRepository(private val database: AppDatabase) {
 
     fun getWordLiveData(name: String?): LiveData<Word?> {
         return database.wordDao.getWordLiveData(name)
+    }
+
+    fun getPlayer(name: String?): LiveData<Player>{
+        return database.playerDao.getPlayer(name)
     }
 
 

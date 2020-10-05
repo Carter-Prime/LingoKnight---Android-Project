@@ -16,10 +16,10 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="284dp"
+            android:layout_height="181dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="80dp"
+            android:layout_marginEnd="64dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,19 +40,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/practice" />
 
-            <Button
-                android:id="@+id/btn_leaderboard"
-                style="@style/home_page_buttons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/leaderboard" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/title_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="64dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:contentDescription="@string/title"

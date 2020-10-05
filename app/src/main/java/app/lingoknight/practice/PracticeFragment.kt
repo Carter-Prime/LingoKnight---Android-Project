@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.lingoknight.database.Word
@@ -16,13 +17,12 @@ import app.lingoknight.practice.WordAdapter
 class PracticeFragment : Fragment(), WordAdapter.Interaction {
 
     override fun onItemSelected(position: Int, item: Word?) {
+        viewModel.word.value = item
         Log.d("testing", "1. Clicked: $position and $item the current viewModel word: ${viewModel.word.value?.text}" )
-        viewModel.itemClicked(position, item, this)
+        viewModel.itemClicked( this)
     }
 
-    private val viewModel: PracticeViewModel by lazy {
-        ViewModelProvider(this).get(PracticeViewModel::class.java)
-    }
+    private val viewModel: PracticeViewModel by activityViewModels()
 
     private lateinit var wordListAdapter: WordAdapter
 
@@ -41,9 +41,9 @@ class PracticeFragment : Fragment(), WordAdapter.Interaction {
         viewModel.listOfWords.observe(viewLifecycleOwner, { words ->
             words?.apply {
                 // what happens to the view on update to listOfWords
+                Log.d("testing", "PracticeView Model Init: ${viewModel.listOfWords.value?.size}")
                 wordListAdapter.submitList(viewModel.listOfWords)
             }
-
         })
 
 

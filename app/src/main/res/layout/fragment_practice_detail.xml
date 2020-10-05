@@ -19,13 +19,13 @@
 
         <ImageView
             android:id="@+id/wordStats"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/word_stats"
-            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="157dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:contentDescription="@string/word_stats" />
+            android:contentDescription="@string/word_stats"
+            android:src="@drawable/word_stats" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
                 android:layout_height="250dp"
                 android:layout_alignTop="@+id/cardBackground"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="72dp"
                 android:contentDescription="@string/word_picture"
                 android:src="@drawable/king" />
 
@@ -143,12 +143,10 @@
                 android:id="@+id/cardBackground"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:elevation="-5dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/card_background"
                 android:contentDescription="@string/detail_image"
+                android:elevation="-5dp"
+                android:src="@drawable/card_background"
                 tools:targetApi="lollipop" />
-
 
 
         </RelativeLayout>

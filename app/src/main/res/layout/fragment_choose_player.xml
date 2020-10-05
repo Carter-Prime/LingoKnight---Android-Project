@@ -32,20 +32,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/playerListRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="match_parent"
             android:layout_margin="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
             tools:listitem="@layout/player_list_item_layout" />
-
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:text="@string/new_player" />
 
 
     </LinearLayout>

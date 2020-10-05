@@ -6,16 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import app.lingoknight.R
 import app.lingoknight.database.Word
 import app.lingoknight.databinding.FragmentPracticeDetailBinding
+import app.lingoknight.game.GameViewModel
 
 class PracticeDetailsFragment : Fragment() {
 
-    private val viewModel: PracticeViewModel by lazy {
-        ViewModelProvider(this).get(PracticeViewModel::class.java)
-    }
+    private val viewModel: PracticeViewModel by activityViewModels()
     private var position:Int? = null
 
     override fun onCreateView(
@@ -30,14 +30,10 @@ class PracticeDetailsFragment : Fragment() {
         // Giving the binding access to the PracticeViewModel
         binding.practiceViewModel = viewModel
 
-        // Passes onClick position to allow binding of the details page
-        position = arguments?.getInt("position")
-        Log.d("testing", "$position this is position passed.")
-
-        viewModel.listOfWords.observe(viewLifecycleOwner, { words ->
+       viewModel.word.observe(viewLifecycleOwner, { words ->
             words?.apply {
                 // what happens to the view on update to listOfWords
-                bind(viewModel.getWord(position!!), binding)
+                bind(words, binding)
             }
         })
 

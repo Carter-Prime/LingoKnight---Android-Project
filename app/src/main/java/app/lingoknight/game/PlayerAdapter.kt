@@ -67,7 +67,6 @@ class PlayerAdapter(private val interaction: Interaction? = null) :
         fun bind(item: Player) = with(itemView) {
             itemView.setOnClickListener {
                 interaction?.onItemSelected(adapterPosition, item)
-                Log.d("testing", "1. inside bind of playeradapter ${item.name}")
             }
             itemView.scoreNumber.text = item.playerScore.toString()
             itemView.playerName_itemView.text = item.name

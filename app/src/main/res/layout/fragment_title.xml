@@ -3,26 +3,33 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/my_background">
+        android:background="@drawable/my_background"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout2"
+        <ImageView
+            android:id="@+id/title_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/title"
+            android:src="@drawable/lingoknight_title_foreground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_image">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:layout_marginTop="80dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_play"
@@ -36,31 +43,14 @@
                 style="@style/home_page_buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/practice" />
+                android:text="@string/practice"
+                tools:layout_editor_absoluteX="-9dp"
+                tools:layout_editor_absoluteY="507dp" />
 
-            <Button
-                android:id="@+id/btn_leaderboard"
-                style="@style/home_page_buttons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/leaderboard" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/title_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="@string/title"
-            android:src="@drawable/lingoknight_title_foreground"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 
