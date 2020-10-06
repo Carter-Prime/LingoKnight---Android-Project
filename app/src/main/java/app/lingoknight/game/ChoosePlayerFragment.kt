@@ -3,8 +3,8 @@
 
 package app.lingoknight.game
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,17 +41,15 @@ class ChoosePlayerFragment : Fragment(), PlayerAdapter.Interaction {
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
-        // TODO shared preference the language change
-        val lang = arguments?.get("language")
-        Log.d("testing", "Practice Fragment - Language: $lang")
-        viewModel.language.value = lang as String
+        // Using shared preference to select the language
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        val language = sharedPref?.getString("Language", "English")
+        viewModel.language.value = language
 
         viewModel.language.observe(viewLifecycleOwner, { words ->
             words?.apply {
                 // what happens to the view on update to listOfWords
                 viewModel.refreshList()
-                Log.d("testing", "Language observer: ${viewModel.language.value}")
-                Log.d("testing", "Language observer: ${viewModel.gameWords.value?.size}")
             }
         })
 
