@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Michael Carter-->
+<!--1910059-->
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -30,13 +33,12 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_margin="16dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/word_image_detail"
@@ -45,7 +47,7 @@
                 android:layout_alignTop="@+id/cardBackground"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="72dp"
-                android:contentDescription="@string/word_picture"
+                android:contentDescription="@string/something_went_wrong"
                 android:src="@drawable/king" />
 
             <TextView
@@ -55,7 +57,7 @@
                 android:layout_below="@id/word_image_detail"
                 android:layout_marginTop="8dp"
                 android:gravity="center_horizontal"
-                android:text="@string/knight"
+                android:text="@string/something_went_wrong"
                 android:textSize="56sp" />
 
             <TableLayout
@@ -68,7 +70,6 @@
                 android:gravity="center_horizontal"
                 android:paddingStart="40dp"
                 android:paddingEnd="40dp">
-
 
 
                 <TableRow
@@ -90,7 +91,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="4dp"
                         android:paddingEnd="4dp"
-                        android:text="@string/_34" />
+                        android:text="@string/temp_number" />
                 </TableRow>
 
                 <TableRow
@@ -112,7 +113,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="4dp"
                         android:paddingEnd="4dp"
-                        android:text="@string/_20" />
+                        android:text="@string/temp_number" />
                 </TableRow>
 
                 <TableRow
@@ -134,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="4dp"
                         android:paddingEnd="4dp"
-                        android:text="@string/_14" />
+                        android:text="@string/temp_number" />
                 </TableRow>
 
             </TableLayout>

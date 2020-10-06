@@ -1,3 +1,6 @@
+<!--Michael Carter-->
+<!--1910059-->
+
 <resources>
 
     <!-- Base application theme. -->
@@ -34,7 +37,6 @@
     <style name="standard_text">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/text_body</item>
-        <item name="android:gravity">center_horizontal</item>
         <item name="android:padding">@dimen/text_padding</item>
         <item name="android:background">@color/scroll</item>
         <item name="strokeWidth">5dp</item>

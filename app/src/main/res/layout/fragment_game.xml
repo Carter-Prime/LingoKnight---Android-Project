@@ -21,15 +21,14 @@
             android:id="@+id/cardBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/detail_image"
             android:elevation="-5dp"
             android:src="@drawable/big_text_background"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="lollipop" />
-
 
         <RadioGroup
             android:id="@+id/answerGroup"
@@ -76,7 +75,7 @@
             android:layout_below="@id/gameQuestion"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:contentDescription="@string/word_picture"
+            android:contentDescription="@string/something_went_wrong"
             android:src="@drawable/king"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -89,19 +88,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:text="@string/what_is_this"
+            android:text="@string/something_went_wrong"
             android:textSize="36sp"
             app:layout_constraintTop_toTopOf="@+id/cardBackground"
             tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/nextBtn"
+            style="@style/home_page_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/home_page_buttons"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/check"
             android:textSize="36sp"
-            android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

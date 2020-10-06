@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Michael Carter-->
+<!--1910059-->
+
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -87,9 +90,6 @@
         <action
             android:id="@+id/action_correctFragment_to_scoreFragment"
             app:destination="@id/scoreFragment" />
-        <action
-            android:id="@+id/action_correctFragment_self"
-            app:popUpTo="@id/correctFragment" />
     </fragment>
     <fragment
         android:id="@+id/incorrectFragment"

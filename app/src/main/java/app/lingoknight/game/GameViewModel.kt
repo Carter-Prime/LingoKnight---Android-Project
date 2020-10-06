@@ -135,10 +135,10 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     // Iterates through the questions when requested
     fun progressQuestion() {
-
-        questionIndex += 1
-        setQuestion()
-
+        if(!isEnd()){
+            questionIndex += 1
+            setQuestion()
+        }
     }
 
     // Randomises the  answer order for the set question - index [0] always correct before shuffle

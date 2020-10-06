@@ -34,7 +34,7 @@ class GameFragment : Fragment() {
 
 
         // Observes changes to player
-        viewModel.player.observe(viewLifecycleOwner, Observer {
+        viewModel.player.observe(viewLifecycleOwner, {
             viewBinding(binding)
         })
         // Observes changes to currentQuestion

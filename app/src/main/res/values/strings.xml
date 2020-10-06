@@ -1,47 +1,37 @@
+<!--Michael Carter-->
+<!--1910059-->
+
 <resources>
     <string name="app_name">LingoKnight</string>
     <string name="play">Play</string>
     <string name="practice">Practice</string>
-    <string name="leaderboard">Leaderboard</string>
-    <string name="title">Title</string>
     <string name="choose_language">Choose a Language</string>
     <string name="reset_leaderboard">Reset Leaderboard</string>
     <string name="about">About</string>
-    <string name="biography">A future software developer in the making!\n\nCurrently living in Finland with my family where I was able to grab a chance at learning to code and found my passion.\n \nAs a lifelong student, I am able to constantly push myself to learn new ideas and skills especially to satisfy my growing curiosity towards software development.\n</string>
-    <string name="about_me">About Me</string>
-    <string name="change_word_text">change word text</string>
-    <string name="word_picture">Word Picture</string>
-    <string name="knight">Knight</string>
+    <string name="biography">The developer of LingoKnight is Michael Carter. A Student at Metropolia University of Applied Science.\nMajoring in Mobile Solutions.\n The artwork was drawn by Memo Angeles, acquired through ShutterStock.</string>
     <string name="word_stats">Word Stats</string>
     <string name="how_many_times_seen">How many times seen:</string>
-    <string name="_34">34</string>
     <string name="how_many_times_correct">How many times correct:</string>
-    <string name="_20">20</string>
     <string name="how_many_times_incorrect">How many times incorrect:</string>
-    <string name="_14">14</string>
     <string name="detail_image">detail_image</string>
     <string name="german">German</string>
     <string name="finnish">Finnish</string>
     <string name="english">English</string>
-    <string name="what_is_this">What is this?</string>
     <string name="answer_one">Answer One</string>
     <string name="answer_two">Answer Two</string>
     <string name="answer_three">Answer Three</string>
     <string name="new_player">New Player</string>
-    <string name="enter_your_name_here">Enter your name here</string>
     <string name="choose_your_player">Choose Your Player</string>
-    <string name="mike">Mike</string>
-
-    <string name="player_score_format">Score: %d</string>
     <string name="score">Score</string>
-    <string name="_10000">10000</string>
-    <string name="mike_">Mike....</string>
     <string name="answer_four">Answer Four</string>
     <string name="check">Check</string>
-    <string name="correct_answer_title">You are are correct\nthis is...</string>
-    <string name="incorrect_answer_title">The correct answer\nis...</string>
+    <string name="correct_answer_title">You are correct\nthis is…</string>
+    <string name="incorrect_answer_title">The correct answer\nis…</string>
     <string name="next">Next</string>
     <string name="end">End</string>
     <string name="reset_stats">Reset Stats</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="temp_number">number</string>
+    <string name="you_have_scored">You have scored…</string>
 
 </resources>

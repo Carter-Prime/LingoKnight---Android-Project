@@ -1,6 +1,8 @@
+// Michael Carter
+// 1910059
+
 package app.lingoknight
 
-import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -26,9 +28,9 @@ class AppDatabaseTest {
     @JvmField
     val rule = InstantTaskExecutorRule()
 
-    /** Extension function to allow unit testing of Live Data. Makes Room process the queries
-    synchronously rather than lazily on a background thread, resulting in a null return when testing
-    **/
+    // Extension function to allow unit testing of Live Data. Makes Room process the queries
+    // synchronously rather than lazily on a background thread, resulting in a null return when testing
+
     private fun <T> LiveData<T>.blockingObserve(): T? {
         var value: T? = null
         val latch = CountDownLatch(1)
@@ -45,12 +47,13 @@ class AppDatabaseTest {
     }
 
     private lateinit var wordDao: WordDao
+    private lateinit var playerDao: PlayerDao
+    private  lateinit var questionDao: QuestionDao
     private lateinit var db: AppDatabase
 
 
     @Before
     fun createDb() {
-        Log.d("TESTING", "inside createDb")
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         // Using an in-memory database because the information stored here disappears when the
         // process is killed.
@@ -59,6 +62,8 @@ class AppDatabaseTest {
             .allowMainThreadQueries()
             .build()
         wordDao = db.wordDao
+        playerDao = db.playerDao
+        questionDao = db.questionDao
     }
 
     @After
@@ -71,35 +76,55 @@ class AppDatabaseTest {
     @Test
     @Throws(Exception::class)
     fun insertAndGetWord() {
-        val words = Word("English", "king")
+        val words = Word("king","English", "king")
         wordDao.insertWord(words)
-        val wordFound = wordDao.getWordLiveData("king")?.blockingObserve()
+        val wordFound = wordDao.getWordLiveData("king").blockingObserve()
         assertEquals(wordFound?.text, "king")
     }
 
     @Test
     @Throws(Exception::class)
     fun addTranslationAndGetTranslation() {
-        val correctList = mutableSetOf<Word>(Word("Swedish", "kung"))
-        val words = Word("English", "king")
+        val correctList = mutableSetOf(Word("king","Swedish", "kung"))
+        val words = Word("king","English", "king")
         wordDao.insertWord(words)
-        val king = wordDao.getWordLiveData("king")?.blockingObserve()
-        king?.addTranslation(Word("Swedish", "kung"))
-        wordDao.updateWord(king)
+        val king = wordDao.getWordLiveData("king").blockingObserve()
+        king?.addTranslation(Word("king","Swedish", "kung"))
+        if (king != null) {
+            wordDao.updateWord(king)
+        }
         assertEquals(king?.translationsList, correctList)
     }
 
     @Test
     fun getListOfWords() {
-        val correctList = listOf<Word>(
-            Word("English", "king"), Word("English", "princess"),
-            Word("English", "knight"), Word("Finnish", "kuningas"), Word("Finnish", "prinsessa"),
-            Word("Finnish", "ritari")
+        val correctList = listOf(
+            Word("king","English", "king"), Word("princess","English", "princess"),
+            Word("knight","English", "knight"), Word("king","Finnish", "kuningas"), Word("knight","Finnish", "prinsessa"),
+            Word("knight","Finnish", "ritari")
         )
 
         correctList.forEach { wordDao.insertWord(it) }
         val listOfWords = wordDao.getListOfWords().blockingObserve()
         assertEquals(listOfWords, correctList)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun insertAndGetPlayer() {
+        val player = Player("John","king")
+        playerDao.insertPlayer(player)
+        val playerFound = playerDao.getPlayer("John").blockingObserve()
+        assertEquals(playerFound?.name, "John")
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun insertAndGetQuestion() {
+        val question = Question("king", "What is this person called?",answers =  listOf("king", "dragon", "knight", "blue"),"English")
+        questionDao.insertQuestion(question)
+        val questionFound = questionDao.getQuestion("king")
+        assertEquals(questionFound.text, "What is this person called?")
     }
 }
 

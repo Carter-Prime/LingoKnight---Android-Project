@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--Michael Carter-->
+<!--1910059-->
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -21,10 +25,12 @@
             android:id="@+id/cardBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:contentDescription="@string/detail_image"
             android:elevation="-5dp"
             android:src="@drawable/big_text_background"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -36,8 +42,8 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="160dp"
-            android:contentDescription="@string/word_picture"
+            android:layout_marginTop="72dp"
+            android:contentDescription="@string/something_went_wrong"
             android:src="@drawable/yeah_comic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:text="Your score is..."
+            android:text="@string/you_have_scored"
             android:textSize="36sp"
             app:layout_constraintTop_toBottomOf="@+id/playerImageScore"
             tools:layout_editor_absoluteX="-26dp" />
@@ -61,8 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:text="100000"
-            android:textSize="36dp"
+            android:text="@string/temp_number"
+            android:textSize="36sp"
             app:layout_constraintTop_toBottomOf="@+id/scoreTitle"
             tools:layout_editor_absoluteX="-17dp" />
 
@@ -71,7 +77,9 @@
             style="@style/home_page_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/end"
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"

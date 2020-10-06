@@ -1,25 +1,28 @@
+<!--Michael Carter-->
+<!--1910059-->
+
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="PracticeViewModel"
             type="app.lingoknight.practice.PracticeViewModel" />
     </data>
 
 
-
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:strokeWidth="4dp"
-        app:strokeColor="@color/colorAccent"
+        android:layout_marginEnd="8dp"
         app:cardElevation="2dp"
-        >
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="4dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -36,56 +39,54 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:contentDescription="@string/word_picture"
+                android:contentDescription="@string/something_went_wrong"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/playerName_itemView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_toEndOf="@+id/playerImage_itemView"
                 android:layout_centerVertical="true"
-                android:text="@string/mike"
-                android:textSize="56sp"
-                />
+                android:layout_toEndOf="@+id/playerImage_itemView"
+                android:gravity="center_horizontal"
+                android:text="@string/something_went_wrong"
+                android:textSize="56sp" />
 
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_toEndOf="@id/playerName_itemView"
-                android:layout_centerVertical="true"
-                >
+                android:layout_toEndOf="@id/playerName_itemView">
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/scoreTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
                         android:text="@string/score"
                         android:textAlignment="center"
-                        android:textSize="18sp"
-                        android:layout_weight="1"/>
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/scoreNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/_10000"
-                        android:textSize="18sp"
+                        android:layout_weight="1"
+                        android:text="@string/something_went_wrong"
                         android:textAlignment="center"
-                        android:layout_weight="1"/>
+                        android:textSize="18sp" />
                 </TableRow>
 
             </TableLayout>
