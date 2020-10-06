@@ -31,14 +31,12 @@
             android:id="@+id/word_text_item_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
             android:layout_toEndOf="@id/word_image_item_view"
-            android:layout_alignBottom="@id/word_image_item_view"
-            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"
             android:text="@string/knight"
-            android:textSize="56sp"
- />
+            android:textSize="36sp" />
 
         <ImageView
             android:id="@+id/word_image_item_view"

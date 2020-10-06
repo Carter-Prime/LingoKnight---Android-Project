@@ -1,6 +1,8 @@
+//Michael Carter
+// 1910059
+
 package app.lingoknight.game
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,10 +17,11 @@ import app.lingoknight.database.Player
 import kotlinx.android.synthetic.main.player_list_item_layout.view.*
 
 
-//
+// Creates and binds the view for the player items on the recycler view
 class PlayerAdapter(private val interaction: Interaction? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    // a better method to handle callbacks to check for changes within the data.
     private val diffCallback = object : DiffUtil.ItemCallback<Player>() {
 
         override fun areItemsTheSame(oldItem: Player, newItem: Player): Boolean {
@@ -61,8 +64,8 @@ class PlayerAdapter(private val interaction: Interaction? = null) :
         differPlayer.submitList(list.value)
     }
 
-    class PlayerViewHolder constructor(itemView: View, private val interaction: Interaction?)
-        : RecyclerView.ViewHolder(itemView) {
+    class PlayerViewHolder constructor(itemView: View, private val interaction: Interaction?) :
+        RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Player) = with(itemView) {
             itemView.setOnClickListener {
@@ -70,28 +73,30 @@ class PlayerAdapter(private val interaction: Interaction? = null) :
             }
             itemView.scoreNumber.text = item.playerScore.toString()
             itemView.playerName_itemView.text = item.name
-            itemView.playerImage_itemView.setImageResource(when (item.pictureId) {
-                "king" -> R.drawable.king
-                "knight" -> R.drawable.knight
-                "princess" -> R.drawable.princess
-                "witch" -> R.drawable.witch
-                "fox" -> R.drawable.fox
-                "purple" -> R.drawable.purple_monster
-                "blue" -> R.drawable.blue_bird
-                "dragon" -> R.drawable.dragon
-                "monster" -> R.drawable.green_monster
-                "green" -> R.drawable.green_troll
-                "tree" -> R.drawable.tree
-                "yellow" -> R.drawable.yellow_monster
-                "horse" -> R.drawable.horse
-                "goat" -> R.drawable.goat
-                else -> R.drawable.oops_comic
-            })
+            itemView.playerImage_itemView.setImageResource(
+                when (item.pictureId) {
+                    "king" -> R.drawable.king
+                    "knight" -> R.drawable.knight
+                    "princess" -> R.drawable.princess
+                    "witch" -> R.drawable.witch
+                    "fox" -> R.drawable.fox
+                    "purple" -> R.drawable.purple_monster
+                    "blue" -> R.drawable.blue_bird
+                    "dragon" -> R.drawable.dragon
+                    "monster" -> R.drawable.green_monster
+                    "green" -> R.drawable.green_troll
+                    "tree" -> R.drawable.tree
+                    "yellow" -> R.drawable.yellow_monster
+                    "horse" -> R.drawable.horse
+                    "goat" -> R.drawable.goat
+                    else -> R.drawable.oops_comic
+                }
+            )
         }
     }
 
     interface Interaction {
-        fun onItemSelected(position: Int, item: Player){
+        fun onItemSelected(position: Int, item: Player) {
 
         }
     }

@@ -1,22 +1,22 @@
+//Michael Carter
+// 1910059
+
 package app.lingoknight.practice
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import app.lingoknight.R
 import app.lingoknight.database.Word
 import app.lingoknight.databinding.FragmentPracticeDetailBinding
-import app.lingoknight.game.GameViewModel
+
 
 class PracticeDetailsFragment : Fragment() {
 
     private val viewModel: PracticeViewModel by activityViewModels()
-    private var position:Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +30,9 @@ class PracticeDetailsFragment : Fragment() {
         // Giving the binding access to the PracticeViewModel
         binding.practiceViewModel = viewModel
 
-       viewModel.word.observe(viewLifecycleOwner, { words ->
+        // Observer to the live data word
+        viewModel.word.observe(viewLifecycleOwner, { words ->
             words?.apply {
-                // what happens to the view on update to listOfWords
                 bind(words, binding)
             }
         })
@@ -44,11 +44,11 @@ class PracticeDetailsFragment : Fragment() {
 
     private fun bind(item: Word?, view: FragmentPracticeDetailBinding) {
         view.wordTextDetail.text = item?.text
-        view.correctNumber.text =item?.wordCorrect.toString()
+        view.correctNumber.text = item?.wordCorrect.toString()
         view.incorrectNumber.text = item?.wordIncorrect.toString()
         view.seenNumber.text = item?.wordSeen.toString()
         view.wordImageDetail.setImageResource(
-            when (item?.text) {
+            when (item?.id) {
                 "king" -> R.drawable.king
                 "knight" -> R.drawable.knight
                 "princess" -> R.drawable.princess

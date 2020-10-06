@@ -1,3 +1,6 @@
+//Michael Carter
+// 1910059
+
 package app.lingoknight.database
 
 import androidx.room.TypeConverter
@@ -5,6 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
+// Type conversion to allow storage of complete objects as strings
 
 class WordConverter {
 

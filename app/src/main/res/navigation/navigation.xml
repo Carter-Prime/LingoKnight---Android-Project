@@ -10,11 +10,6 @@
         android:name="app.lingoknight.menu.AboutFragment"
         android:label="LingoKnight"
         tools:layout="@layout/fragment_about"/>
-    <fragment
-        android:id="@+id/changeLanguageFragment"
-        android:name="app.lingoknight.menu.ChangeLanguageFragment"
-        android:label="Change Language"
-        tools:layout="@layout/fragment_change_language"/>
 
     <fragment
         android:id="@+id/titleFragment"
@@ -27,6 +22,10 @@
         <action
             android:id="@+id/action_titleFragment_to_choosePlayerFragment"
             app:destination="@id/choosePlayerFragment" />
+        <argument
+            android:name="language"
+            app:argType="string"
+            android:defaultValue="English" />
     </fragment>
 
     <!--game navigation-->
@@ -34,7 +33,16 @@
         android:id="@+id/gameFragment"
         android:name="app.lingoknight.game.GameFragment"
         android:label="LingoKnight - Game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_correctFragment"
+            app:destination="@id/correctFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_incorrectFragment"
+            app:destination="@id/incorrectFragment"
+            app:launchSingleTop="false" />
+
+    </fragment>
 
     <!--practice navigation-->
     <fragment
@@ -57,7 +65,7 @@
             />
     </fragment>
 
-    <!--Leaderboard navigation-->
+    <!--Game navigation-->
     <fragment
         android:id="@+id/choosePlayerFragment"
         android:name="app.lingoknight.game.ChoosePlayerFragment"
@@ -67,8 +75,74 @@
             android:id="@+id/action_choosePlayerFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/correctFragment"
+        android:name="app.lingoknight.game.CorrectFragment"
+        android:label="LingoKnight"
+        tools:layout="@layout/fragment_correct_answer">
+        <action
+            android:id="@+id/action_correctFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_correctFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+        <action
+            android:id="@+id/action_correctFragment_self"
+            app:popUpTo="@id/correctFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incorrectFragment"
+        android:name="app.lingoknight.game.IncorrectFragment"
+        android:label="LingoKnight"
+        tools:layout="@layout/fragment_incorrect_answer">
+        <action
+            android:id="@+id/action_incorrectFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_incorrectFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+        <action
+            android:id="@+id/action_incorrectFragment_self"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="app.lingoknight.game.ScoreFragment"
+        android:label="ScoreFragment"
+        tools:layout="@layout/fragment_score">
+        <action
+            android:id="@+id/action_scoreFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+        <action
+            android:id="@+id/action_scoreFragment_pop_including_titleFragment"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeLanguageFragment"
+        android:name="app.lingoknight.menu.ChangeLanguageFragment"
+        android:label="ChangeLanguageFragment"
+        tools:layout="@layout/fragment_change_language">
 
-
+        <argument
+            android:name="Language"
+            app:argType="string"
+            android:defaultValue="Finnish" />
+        <action
+            android:id="@+id/action_changeLanguageFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetStatsFragment"
+        android:name="app.lingoknight.menu.ResetStatsFragment"
+        android:label="ResetStatsFragment"
+        tools:layout="@layout/fragment_reset_stats">
+        <action
+            android:id="@+id/action_resetStatsFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
 
 
 </navigation>

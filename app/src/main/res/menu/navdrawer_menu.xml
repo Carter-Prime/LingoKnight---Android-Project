@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
@@ -10,5 +10,8 @@
         android:id="@+id/changeLanguageFragment"
         android:icon="@drawable/nav_header"
         android:title="@string/choose_language" />
-
+    <item
+        android:id="@+id/resetStatsFragment"
+        android:icon="@drawable/nav_header"
+        android:title="@string/reset_stats" />
 </menu>

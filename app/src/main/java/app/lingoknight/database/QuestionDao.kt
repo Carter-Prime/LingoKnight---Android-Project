@@ -1,3 +1,6 @@
+// Michael Carter
+// 1910059
+
 package app.lingoknight.database
 
 import androidx.lifecycle.LiveData
@@ -10,7 +13,7 @@ interface QuestionDao {
     fun insertQuestion(question: Question)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAllQuestions( lisQuestions: List<Question>)
+    fun insertAllQuestions(lisQuestions: List<Question>)
 
     @Update
     fun updateQuestion(question: Question)

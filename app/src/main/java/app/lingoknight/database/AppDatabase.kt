@@ -1,10 +1,18 @@
+// Michael Carter
+// 1910059
+
 package app.lingoknight.database
 
 import android.content.Context
 import androidx.room.*
 
+// Database is created using a singleton.
 
-@Database(entities = [Word::class, Question::class, Player::class], version = 1, exportSchema = false)
+@Database(
+    entities = [Word::class, Question::class, Player::class],
+    version = 1,
+    exportSchema = false
+)
 @TypeConverters(WordConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -28,11 +36,11 @@ abstract class AppDatabase : RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java,
                         "app_database"
-                    ).fallbackToDestructiveMigration().build()
+                    ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
                     INSTANCE = instance
                 }
-                 return instance
+                return instance
             }
         }
     }

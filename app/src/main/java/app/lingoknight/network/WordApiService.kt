@@ -1,3 +1,6 @@
+//Michael Carter
+// 1910059
+
 package app.lingoknight.network
 
 import app.lingoknight.database.Player
@@ -21,9 +24,10 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
+// Interface to control the retrieval of data online
 interface WordApiService {
 
-    @GET("word3.json")
+    @GET("word2.json")
     suspend fun getWordProperties(): List<Word>
 
     @GET("questions.json")

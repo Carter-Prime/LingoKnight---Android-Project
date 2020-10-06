@@ -1,24 +1,20 @@
+//Michael Carter
+// 1910059
+
 package app.lingoknight.game
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.findNavController
 import app.lingoknight.R
-import app.lingoknight.database.Player
-import app.lingoknight.database.Question
-import app.lingoknight.database.Word
-import app.lingoknight.databinding.FragmentChoosePlayerBinding
 import app.lingoknight.databinding.FragmentGameBinding
-import app.lingoknight.databinding.FragmentPracticeDetailBinding
 
+// UI fragment for the questions aspect of the game
 
 class GameFragment : Fragment() {
 
@@ -49,7 +45,6 @@ class GameFragment : Fragment() {
 
         binding.nextBtn.setOnClickListener {
             checkAnswer(binding)
-            viewModel.checkAnswer()
         }
 
         return binding.root
@@ -82,8 +77,10 @@ class GameFragment : Fragment() {
         )
     }
 
-
-    fun checkAnswer(binding: FragmentGameBinding) {
+    // Performing checks on the radio buttons to see if the answer matches that of the question
+    // If correct a point is added to the player score and the game will progress to the correct or
+    // incorrect fragment.
+    private fun checkAnswer(binding: FragmentGameBinding) {
         val radioId = binding.answerGroup.checkedRadioButtonId
         // Do nothing if nothing is checked (id == -1)
         if (-1 != radioId) {
@@ -95,19 +92,16 @@ class GameFragment : Fragment() {
                 R.id.radioBtn_answerFour -> answerIndex = 3
             }
 
-            Log.d("testing", "answer Index is: $answerIndex  current Question correct answer: ${viewModel.currentQuestion.value?.answers?.get(0)}" +
-                    " List answer : ${viewModel.answerList[answerIndex]} radioID is: $radioId")
-
-            if(viewModel.currentQuestion.value?.answers?.get(0) == viewModel.answerList[answerIndex]){
-                Log.d("testing", "Congratz you are correct!")
-            }else{
-                Log.d("testing", "to bad! you are not right!")
+            if(viewModel.isCorrect(answerIndex)){
+                viewModel.score += 1
+                viewModel.increaseSeen()
+                viewModel.increaseCorrect()
+                view?.findNavController()?.navigate(R.id.action_gameFragment_to_correctFragment)
+            }else if(!viewModel.isCorrect(answerIndex)){
+                viewModel.increaseSeen()
+                viewModel.increaseIncorrect()
+                view?.findNavController()?.navigate(R.id.action_gameFragment_to_incorrectFragment)
             }
         }
-
     }
-
-
-
-
 }

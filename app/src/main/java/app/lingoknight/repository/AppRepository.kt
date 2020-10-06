@@ -1,3 +1,6 @@
+//Michael Carter
+// 1910059
+
 package app.lingoknight.repository
 
 
@@ -12,12 +15,12 @@ import kotlinx.coroutines.withContext
 
 class AppRepository(private val database: AppDatabase) {
 
-    val words: LiveData<List<Word?>> = database.wordDao.getListOfWords()
+    val words: LiveData<List<Word>> = database.wordDao.getListOfWords()
     val listOfQuestions = database.questionDao.getListOfQuestions()
     val listOfPlayer = database.playerDao.getListOfPlayers()
 
-    suspend fun refreshWords(){
-        withContext(Dispatchers.IO){
+    suspend fun refreshWords() {
+        withContext(Dispatchers.IO) {
 
             val networkWordList = WordApi.retrofitService.getWordProperties()
             val networkQuestionList = WordApi.retrofitService.getQuestionProperties()
@@ -28,13 +31,17 @@ class AppRepository(private val database: AppDatabase) {
         }
     }
 
-    fun getWordLiveData(name: String?): LiveData<Word?> {
-        return database.wordDao.getWordLiveData(name)
+    fun upDatePlayer(player: LiveData<Player>) {
+        database.playerDao.updatePlayer(player.value)
     }
 
-    fun getPlayer(name: String?): LiveData<Player>{
-        return database.playerDao.getPlayer(name)
+    fun updateWord(word: Word) {
+        database.wordDao.updateWord(word)
+
     }
 
-
+    fun reset() {
+        database.wordDao.deleteAllWords()
+        database.playerDao.deleteAllPlayers()
+    }
 }

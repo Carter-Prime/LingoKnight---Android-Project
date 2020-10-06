@@ -27,7 +27,6 @@
     <string name="answer_one">Answer One</string>
     <string name="answer_two">Answer Two</string>
     <string name="answer_three">Answer Three</string>
-    <string name="next">Next</string>
     <string name="new_player">New Player</string>
     <string name="enter_your_name_here">Enter your name here</string>
     <string name="choose_your_player">Choose Your Player</string>
@@ -39,5 +38,10 @@
     <string name="mike_">Mike....</string>
     <string name="answer_four">Answer Four</string>
     <string name="check">Check</string>
+    <string name="correct_answer_title">You are are correct\nthis is...</string>
+    <string name="incorrect_answer_title">The correct answer\nis...</string>
+    <string name="next">Next</string>
+    <string name="end">End</string>
+    <string name="reset_stats">Reset Stats</string>
 
 </resources>
