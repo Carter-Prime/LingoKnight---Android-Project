@@ -40,7 +40,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    val gameWords: MutableLiveData<List<Word>> by lazy {
+    private val gameWords: MutableLiveData<List<Word>> by lazy {
         MutableLiveData<List<Word>>()
     }
 
@@ -96,7 +96,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     // Increase the word statistics for word seen
     fun increaseSeen() {
-        var item = gameWords.value!!.filter { currentQuestion.value!!.answers[0] == it.text }
+        var item = gameWords.value?.filter { currentQuestion.value!!.answers[0] == it.text }
         if (item.isNullOrEmpty()) {
             item = gameWords.value!!.filter { currentQuestion.value!!.answers[0] == it.text }
         }

@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import app.lingoknight.R
 import app.lingoknight.databinding.FragmentIncorrectAnswerBinding
@@ -33,7 +32,7 @@ class IncorrectFragment : Fragment() {
 
 
         // Observes changes to player
-        viewModel.player.observe(viewLifecycleOwner, Observer {
+        viewModel.player.observe(viewLifecycleOwner, {
             viewBinding(binding)
         })
         // Observes changes to currentQuestion
