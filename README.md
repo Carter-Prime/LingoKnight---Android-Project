@@ -1,6 +1,6 @@
 <h1>LingoKnight Project</h1>
 <h3>Project Details</h3>
-<p>>
+<p>
 As a "Mobiles Solutions" major student I was tasked with learning Kotlin and new Android techniques. The accumulation of this learning was a individual project to create a word quiz application that would assist in the translation and learning of a new language. I had a strong focus on my target users, young children. Thus I designed and built a user experience to match this user group using Adobe xD and Illustrator. Technical skills used included using the MVVM pattern, Rooms database, LiveData and downloading and converting Json data using Moshi. 
 </p>
 <h3>Self-Evaluation of Project</h3>    
