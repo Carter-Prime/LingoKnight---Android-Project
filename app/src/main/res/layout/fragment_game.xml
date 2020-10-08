@@ -84,14 +84,15 @@
 
         <TextView
             android:id="@+id/gameQuestion"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
             android:text="@string/something_went_wrong"
             android:textSize="36sp"
-            app:layout_constraintTop_toTopOf="@+id/cardBackground"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardBackground" />
 
         <Button
             android:id="@+id/nextBtn"

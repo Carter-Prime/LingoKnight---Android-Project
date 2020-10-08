@@ -52,25 +52,26 @@
 
         <TextView
             android:id="@+id/scoreTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
             android:text="@string/you_have_scored"
             android:textSize="36sp"
-            app:layout_constraintTop_toBottomOf="@+id/playerImageScore"
-            tools:layout_editor_absoluteX="-26dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playerImageScore" />
 
         <TextView
             android:id="@+id/playerScore"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
             android:text="@string/temp_number"
             android:textSize="36sp"
-            app:layout_constraintTop_toBottomOf="@+id/scoreTitle"
-            tools:layout_editor_absoluteX="-17dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scoreTitle" />
 
         <Button
             android:id="@+id/nextBtn"

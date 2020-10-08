@@ -33,5 +33,6 @@
     <string name="something_went_wrong">Something went wrong!</string>
     <string name="temp_number">number</string>
     <string name="you_have_scored">You have scored…</string>
+    <string name="title">title</string>
 
 </resources>
