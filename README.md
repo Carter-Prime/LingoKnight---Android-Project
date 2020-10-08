@@ -14,7 +14,7 @@ Even though the project has been well received by my course teachers, due to tim
     Author: Michael Carter
 </p>
 <p>
-    <h3> Design Video and Adobe xD <h3>
+    <h3> Design Video and Adobe xD </h3>
         <a href="https://xd.adobe.com/view/b56e4c84-f9b4-48af-885d-8dab490c8ed8-e03d/?fullscreen"> Adobe xD LingoKnight Prototype</a>
         <br>
         <a href="https://drive.google.com/file/d/1UylUsYpMUjnsRzPLiBgSUuD960JfxWSs/view?usp=sharing">Prototype Video</a>
