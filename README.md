@@ -8,7 +8,7 @@ As a "Mobiles Solutions" major student I was tasked with learning Kotlin and new
 Lingo Knight was my second Android project, this time using Kotlin as the language. This was a very different process when compare to my first project using Java, this time I was utilising more standard Android architect features that were new to me. The implementation of the MVVM pattern utilizing LivaData started out to be quite tricky until an insightful session with my course lecturer helped clear up where I was going wrong. This allowed me to progress and build a fully modular application that allowed for changes on the UI during orientation changes without loosing data.   
 </p>
 <p>
-Even though the project has been well received by my course teachers, due to time restrictions my initial design was not fully realised. Therefore the project will be updated as and when these are worked on. 
+Even though the project has been well received by my course teachers, due to time restrictions my initial design was not fully realised.\nTherefore the project will be updated as and when these are worked on. 
 </p>
 <p>
     Author: Michael Carter
