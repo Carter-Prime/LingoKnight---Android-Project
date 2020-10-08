@@ -3,6 +3,7 @@
 
 package app.lingoknight.practice
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,10 +37,11 @@ class PracticeFragment : Fragment(), WordAdapter.Interaction {
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
-        //TODO fix language transition
-        val lang = arguments?.get("language")
 
-        viewModel.language.value = lang as String
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        val language = sharedPref?.getString("Language", "English")
+
+        viewModel.language.value = language
 
         viewModel.language.observe(viewLifecycleOwner, { words ->
             words?.apply {

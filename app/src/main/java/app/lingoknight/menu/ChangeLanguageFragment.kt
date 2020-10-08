@@ -3,12 +3,11 @@
 
 package app.lingoknight.menu
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import app.lingoknight.R
@@ -16,6 +15,7 @@ import app.lingoknight.databinding.FragmentChangeLanguageBinding
 
 
 class ChangeLanguageFragment : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,27 +26,38 @@ class ChangeLanguageFragment : Fragment() {
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
 
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        with(sharedPref?.edit()) {
+            this?.putString("Language", "English")
+            this?.apply()
+        }
+
         binding.englishButton.setOnClickListener {
-            val bundle = bundleOf("language" to "English")
-            Log.d("testing", "$bundle")
+            setLanguage("English")
             view?.findNavController()
-                ?.navigate(R.id.action_changeLanguageFragment_to_titleFragment, bundle)
+                ?.navigate(R.id.action_changeLanguageFragment_to_titleFragment)
         }
         binding.germanButton.setOnClickListener {
-            val bundle = bundleOf("language" to "German")
-            Log.d("testing", "$bundle")
+            setLanguage("German")
             view?.findNavController()
-                ?.navigate(R.id.action_changeLanguageFragment_to_titleFragment, bundle)
+                ?.navigate(R.id.action_changeLanguageFragment_to_titleFragment)
         }
         binding.finnishButton.setOnClickListener {
-            val bundle = bundleOf("language" to "Finnish")
-            Log.d("testing", "$bundle")
+            setLanguage("Finnish")
             view?.findNavController()
-                ?.navigate(R.id.action_changeLanguageFragment_to_titleFragment, bundle)
+                ?.navigate(R.id.action_changeLanguageFragment_to_titleFragment)
         }
 
 
         return binding.root
+    }
+
+    private fun setLanguage(language: String) {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        with(sharedPref?.edit()) {
+            this?.putString("Language", language)
+            this?.apply()
+        }
     }
 
 }

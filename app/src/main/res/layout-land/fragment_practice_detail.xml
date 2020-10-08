@@ -31,50 +31,52 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
+
+        <ImageView
+            android:id="@+id/word_image_detail"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignTop="@+id/cardBackground"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:contentDescription="@string/something_went_wrong"
+            android:src="@drawable/king"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.691" />
+
+        <TextView
+            android:id="@+id/word_text_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Stats_table"
+            android:layout_below="@id/word_image_detail"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="36dp"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:text="@string/title"
+            android:textSize="48sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/word_image_detail"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_alignTop="@+id/cardBackground"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="24dp"
-                android:contentDescription="@string/something_went_wrong"
-                android:src="@drawable/king" />
-
-            <TextView
-                android:id="@+id/word_text_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/word_image_detail"
-                android:layout_centerInParent="true"
-                android:gravity="center_horizontal"
-                android:padding="8dp"
-                android:text="@string/something_went_wrong"
-                android:textSize="48sp" />
-
-            <ImageView
-                android:id="@+id/cardBackground"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/detail_image"
-                android:elevation="-5dp"
-                android:src="@drawable/card_background"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="1dp"
-                tools:targetApi="lollipop" />
-
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/cardBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/detail_image"
+            android:elevation="-5dp"
+            android:src="@drawable/card_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="lollipop" />
 
         <TableLayout
             android:id="@+id/Stats_table"
